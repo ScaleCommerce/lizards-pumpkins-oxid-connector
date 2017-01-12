@@ -30,6 +30,7 @@ class AzLizardsImport extends oxUBase
         $articlelist->selectString($select);
 
         foreach ($articlelist as $sku => $articleObject) {
+            dumpVar($articleObject);
             $product = array();
             $product['type_id'] = 'simple';
             $product['tax_class'] = $articleObject->getArticleVat();

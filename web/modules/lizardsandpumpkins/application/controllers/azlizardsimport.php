@@ -2,7 +2,7 @@
 use LizardsAndPumpkins\MagentoConnector\Uploader;
 use LizardsAndPumpkins\MagentoConnector\XmlBuilder\CatalogMerge;
 
-require __DIR__ . '../../lib/autoload.php';
+require __DIR__ . '/../../lib/autoload.php';
 
 /**
  * Created by PhpStorm.

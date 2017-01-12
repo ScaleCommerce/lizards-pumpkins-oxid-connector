@@ -10,6 +10,8 @@ class AzLizardsImport extends oxUBase
 {
     protected $defaultVAT = 19;
 
+    protected $products;
+
     public function render()
     {
         $this->_generateLizardsXML();
@@ -19,6 +21,11 @@ class AzLizardsImport extends oxUBase
 
     protected function _generateLizardsXML()
     {
-        echo "test";
+        $articlelist = oxNew(oxArticleList::class);
+        $select = 'SELECT oxid FROM oxarticles';
+        $articlelist->selectString($select);
+
+        dumpVar($articlelist);
+        exit;
     }
 }

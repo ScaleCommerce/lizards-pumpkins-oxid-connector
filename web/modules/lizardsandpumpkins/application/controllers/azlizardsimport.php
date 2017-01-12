@@ -1,4 +1,6 @@
 <?php
+use LizardsAndPumpkins\MagentoConnector\Uploader;
+use LizardsAndPumpkins\MagentoConnector\XmlBuilder\CatalogMerge;
 
 /**
  * Created by PhpStorm.
@@ -22,9 +24,9 @@ class azlizardsimport extends oxUBase
 
     protected function _generateLizardsXML()
     {
-        new LizardsAndPumpkins_MagentoConnector_Model_Export_PrepareProductDataForXmlBuilder(
+        $xmlBuilderAndUploader = new Export(
             new CatalogMerge(),
-            new LizardsAndPumpkins_MagentoConnector_Model_XmlUploader()
+            new Uploader()
         );
 
         $filename = 'catalog.xml';

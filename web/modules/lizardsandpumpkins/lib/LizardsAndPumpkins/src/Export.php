@@ -12,7 +12,7 @@ class Export
     private $merge;
 
     /**
-     * @var LizardsAndPumpkins_MagentoConnector_Model_XmlUploader
+     * @var Uploader
      */
     private $uploader;
 

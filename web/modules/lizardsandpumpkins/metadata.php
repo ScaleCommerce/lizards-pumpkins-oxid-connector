@@ -1,7 +1,7 @@
 <?php
 
 $aModule = array(
-    'id'            => 'lizzardandpumpkins',
+    'id'            => 'lizardandpumpkins',
     'title'         => 'OXID2LIZARD Importer',
     'description'   => 'Imports product data from Oxid to Lizards and Pumpkins',
     'thumbnail'     => 'picture.gif',

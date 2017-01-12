@@ -64,7 +64,7 @@ class Uploader
             $message = sprintf('"%s" is not one of the allowed protocols: "%s"', $protocol,
                 implode(', ', $this->getAllowedProtocols()));
 
-            throw new Mage_Core_Exception($message);
+            throw new \Exception($message);
         }
     }
 

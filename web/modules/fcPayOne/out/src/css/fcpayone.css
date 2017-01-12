@@ -1,0 +1,49 @@
+.fcpo_check_error, #fcpo_elv_error, #fcpo_elv_error_blocked, #fcpo_cc_error, #fcpo_ou_error {
+    display: none;
+}
+
+.errorbox {
+     background-color: red;
+     color: white;
+}
+#fcpoSEPAMandateBox {
+    margin-bottom: 35px;
+    color: #515353;
+}        
+.fcpoSEPAMandate {
+    overflow: scroll;
+    border: 1px solid #ccc;
+    padding: 10px;
+    height: 200px;
+    margin: 10px 0 10px 0;
+}
+.fcpoSEPAMandate P {
+    margin: 0 0 18px;
+}
+.fcpoSEPAMandate DL {
+    margin-bottom: 20px;
+}
+.fcpoSEPAMandate DT {
+    float: left;
+    font-weight: normal;
+    width: 250px;
+}
+.fcpoSEPAMandate DD {
+    margin-left: 10px;
+    display: block;
+}
+.fcpoSEPAMandate DD, .fcpoSEPAMandate DT {
+    line-height: 20px;
+}
+.fcpoSEPAMandateCheckbox label {
+    float: left;
+    padding-right: 10px;
+    display: block;
+    margin-bottom: 5px;
+}
+.fcpoSEPAMandateCheckbox {
+    margin-bottom: 20px;
+}
+.fcpoSEPAMandateCheckbox.fcpoMobile{
+     margin-bottom: 50px;
+}

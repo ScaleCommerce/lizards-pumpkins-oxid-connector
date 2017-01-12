@@ -1,0 +1,1 @@
+a:2:{s:7:"oxorder";s:38:"oe/invoicepdf/models/invoicepdfoxorder";s:14:"order_overview";s:56:"oe/invoicepdf/controllers/admin/invoicepdforder_overview";}

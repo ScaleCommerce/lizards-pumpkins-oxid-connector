@@ -6,7 +6,7 @@
  * Date: 12.01.17
  * Time: 10:43
  */
-class AzLizardsImport extends oxUBase
+class azlizardsimport extends oxUBase
 {
     protected $defaultVAT = 19;
 

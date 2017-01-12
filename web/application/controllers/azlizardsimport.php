@@ -38,7 +38,7 @@ class AzLizardsImport extends oxUBase
             //$gallery = $articleObject->getPictureGallery();
             //dumpVar($gallery);
 
-            $masterPic = 'product/1' . $articleObject->getPictureFieldValue('oxpic', 1);
+            $masterPic = 'product/1' . $articleObject->oxarticles__oxpic1->value;
             $picturePath = $this->getConfig()->getMasterPicturePath($masterPic);
 
             echo $sku."<br>";

@@ -66,7 +66,7 @@ class azlizardsimport extends oxUBase
 
 
         }
-        //var_dump($this->products);
+        var_dump($this->products);
     }
 
 

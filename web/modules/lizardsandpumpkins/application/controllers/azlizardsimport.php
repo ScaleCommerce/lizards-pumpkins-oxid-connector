@@ -18,8 +18,6 @@ class azlizardsimport extends oxUBase
 
     public function render()
     {
-        error_reporting(E_ALL);
-        ini_set('display_errors', 1);
         die($this->_generateLizardsXML());
     }
 
@@ -27,7 +25,7 @@ class azlizardsimport extends oxUBase
     protected function _generateLizardsXML()
     {
         $filename = tempnam('lap', 'xml_');
-
+echo $filename;
         $xmlBuilderAndUploader = new Export(
             $merge = new CatalogMerge(),
             $uploader = new Uploader($filename)

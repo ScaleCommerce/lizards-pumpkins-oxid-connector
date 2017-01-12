@@ -54,7 +54,7 @@ class AzLizardsImport extends oxUBase
             $attributes = array(
                 'category' => $articleObject->getCategory()->getTitle(),
                 'title' => $articleObject->oxarticles__oxtitle->value,
-                'price' => $articleObject->getPrice(),
+                'price' => $articleObject->getPrice()->getBruttoPrice(),
                 'shortdescription' => $articleObject->oxarticles__oxshortdesc->value,
                 'longdescription' => $articleObject->getLongDesc(),
                 'stockquantity' => $articleObject->oxarticles__oxstock->value

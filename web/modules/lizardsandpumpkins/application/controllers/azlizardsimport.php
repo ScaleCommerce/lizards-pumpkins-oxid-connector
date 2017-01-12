@@ -18,9 +18,7 @@ class azlizardsimport extends oxUBase
 
     public function render()
     {
-        $this->_generateLizardsXML();
-
-        exit;
+        die($this->_generateLizardsXML());
     }
 
 

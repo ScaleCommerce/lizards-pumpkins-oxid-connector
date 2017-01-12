@@ -9,9 +9,11 @@ Array to use in LizardAndPumpkins Product builder:
             'tax_class'           => 'STRING',
             'sku'                 => 'STRING',
             'images'              => [
-                'main'  => 'BOOL',
-                'file'  => '/var/images/blub.png',
-                'label' => 'STRING',
+                [
+                    'main'  => 'BOOL',
+                    'file'  => '/var/images/blub.png',
+                    'label' => 'STRING',
+                ]
             ],
             'attributes'          => [
                 'category' => '123',

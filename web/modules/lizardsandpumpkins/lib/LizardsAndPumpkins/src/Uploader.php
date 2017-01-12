@@ -19,7 +19,7 @@ class Uploader
     /**
      * @param string $target
      */
-    protected function __construct($target)
+    public function __construct($target)
     {
         $this->checkTarget($target);
         $this->target = $target;

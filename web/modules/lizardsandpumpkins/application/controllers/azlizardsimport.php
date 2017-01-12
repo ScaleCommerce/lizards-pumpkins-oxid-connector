@@ -24,12 +24,12 @@ class azlizardsimport extends oxUBase
 
     protected function _generateLizardsXML()
     {
+        $filename = tmpfile();
+
         $xmlBuilderAndUploader = new Export(
             new CatalogMerge(),
-            new Uploader()
+            new Uploader($filename)
         );
-
-        $filename = 'catalog.xml';
 
         /**
          * @var oxArticle $articleObject
@@ -58,7 +58,6 @@ class azlizardsimport extends oxUBase
                     'label' => $articleObject->oxarticles__oxtitle->value,
                 ],
             ];
-
 
             $attributes = [
                 'category'         => $articleObject->getCategory()->getTitle(),

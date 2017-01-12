@@ -30,7 +30,7 @@ class AzLizardsImport extends oxUBase
         $articlelist->selectString($select);
 
         foreach ($articlelist as $sku => $simpleArticleObject) {
-            $articleObject = oxNew($oxArticle::class);
+            $articleObject = oxNew(oxArticle::class);
             $articleObject->load($sku);
 
 

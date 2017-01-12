@@ -47,11 +47,11 @@ class AzLizardsImport extends oxUBase
 
             $product['images'] = array(
                 array(
-                    'main' => true,->
-                    'file' => $picturePath.$pictureFileName;
-                    'label' => $articleObject->oxarticles__oxtitle->value;
+                    'main' => true,
+                    'file' => $picturePath.$pictureFileName,
+                    'label' => $articleObject->oxarticles__oxtitle->value,
                 ),
-            )
+            );
 
 
         $this->products[] = $product;

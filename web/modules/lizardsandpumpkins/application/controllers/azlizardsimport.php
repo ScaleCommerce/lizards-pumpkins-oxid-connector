@@ -22,6 +22,13 @@ class azlizardsimport extends oxUBase
 
     protected function _generateLizardsXML()
     {
+        new LizardsAndPumpkins_MagentoConnector_Model_Export_PrepareProductDataForXmlBuilder(
+            new CatalogMerge(),
+            new LizardsAndPumpkins_MagentoConnector_Model_XmlUploader()
+        );
+
+        $filename = 'catalog.xml';
+
         /**
          * @var oxArticle $articleObject
          */
@@ -34,7 +41,7 @@ class azlizardsimport extends oxUBase
             $articleObject->load($sku);
 
 
-            $product = array();
+            $product = [];
             $product['type_id'] = 'simple';
             $product['tax_class'] = $articleObject->getArticleVat();
             $product['sku'] = $sku;
@@ -42,30 +49,37 @@ class azlizardsimport extends oxUBase
 
             $picturePath = 'product/1/';
             $pictureFileName = $articleObject->oxarticles__oxpic1->value;
-            $product['images'] = array(
-                array(
-                    'main' => true,
-                    'file' => $picturePath.$pictureFileName,
+            $product['images'] = [
+                [
+                    'main'  => true,
+                    'file'  => $picturePath . $pictureFileName,
                     'label' => $articleObject->oxarticles__oxtitle->value,
-                ),
-            );
+                ],
+            ];
 
 
-            $attributes = array(
-                'category' => $articleObject->getCategory()->getTitle(),
-                'title' => $articleObject->oxarticles__oxtitle->value,
-                'price' => $articleObject->getPrice()->getBruttoPrice(),
+            $attributes = [
+                'category'         => $articleObject->getCategory()->getTitle(),
+                'title'            => $articleObject->oxarticles__oxtitle->value,
+                'price'            => $articleObject->getPrice()->getBruttoPrice(),
                 'shortdescription' => $articleObject->oxarticles__oxshortdesc->value,
-                'longdescription' => $articleObject->getLongDesc(),
-                'stockquantity' => $articleObject->oxarticles__oxstock->value
-            );
+                'longdescription'  => $articleObject->getLongDesc(),
+                'stockquantity'    => $articleObject->oxarticles__oxstock->value,
+            ];
             $product['attributes'] = $attributes;
 
 
-        $this->products[] = $product;
+            $this->products[] = $product;
 
-
+            $xmlBuilderAndUploader->process($product);
         }
+
+        $this->getFactory()->getProductXmlUploader()->writePartialXmlString(
+            $this->getFactory()->getCatalogMerge()->finish()
+        );
+
+        return $filename;
+
         //var_dump($this->products);
     }
 

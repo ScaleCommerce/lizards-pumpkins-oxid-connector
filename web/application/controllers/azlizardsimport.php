@@ -29,8 +29,10 @@ class AzLizardsImport extends oxUBase
         $select = 'SELECT oxid FROM oxarticles';
         $articlelist->selectString($select);
 
-        foreach ($articlelist as $sku => $articleObject) {
-            dumpVar($articleObject);
+        foreach ($articlelist as $sku => $simpleArticleObject) {
+            $articleObject = $simpleArticleObject->load($sku);
+
+
             $product = array();
             $product['type_id'] = 'simple';
             $product['tax_class'] = $articleObject->getArticleVat();
@@ -39,9 +41,7 @@ class AzLizardsImport extends oxUBase
             //$gallery = $articleObject->getPictureGallery();
             //dumpVar($gallery);
 
-            //$masterPic = 'product/1' . $articleObject->getPictureFieldValue('oxpic', 1);
-            $tmp = $articleObject->oxarticles__oxtitle->value;
-            echo 'tmp: '.$tmp;
+            $masterPic = 'product/1' . $articleObject->getPictureFieldValue('oxpic', 1);
             echo 'masterPic: '.$masterPic."<br>";
             $picturePath = $this->getConfig()->getMasterPicturePath($masterPic);
 

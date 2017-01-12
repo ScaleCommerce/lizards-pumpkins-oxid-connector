@@ -26,7 +26,7 @@ class azlizardsimport extends oxUBase
 
     protected function _generateLizardsXML()
     {
-        $filename = tempnam('lap');
+        $filename = tempnam('lap', 'xml_');
 
         $xmlBuilderAndUploader = new Export(
             $merge = new CatalogMerge(),

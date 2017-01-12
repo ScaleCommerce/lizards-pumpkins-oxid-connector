@@ -47,7 +47,7 @@ class AzLizardsImport extends oxUBase
 
 
 
-            $this->products
+
         }
     }
 }

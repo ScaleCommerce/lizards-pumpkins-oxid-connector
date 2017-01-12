@@ -40,23 +40,26 @@ class AzLizardsImport extends oxUBase
             $product['sku'] = $sku;
 
 
-            $masterPic = 'product/1' . $articleObject->getPictureFieldValue('oxpic', 1);
-            $picturePath = $this->getConfig()->getMasterPicturePath($masterPic);
+            $picturePath = 'out/pictures/master/product/1/';
+            $pictureFileName = $articleObject->oxarticles__oxpic1->value;
 
-            echo $sku."<br>";
-            echo $articleObject->oxarticles__oxpic1->value."<br><br>";
 
-            /*
+
             $product['images'] = array(
                 array(
-                    'main' => $articleObject->getPictureGal
-                )
+                    'main' => true,->
+                    'file' => $picturePath.$pictureFileName;
+                    'label' => $articleObject->oxarticles__oxtitle->value;
+                ),
             )
-            */
 
 
+        $this->products[] = $product;
 
 
         }
+        var_dump($this->products);
     }
+
+
 }

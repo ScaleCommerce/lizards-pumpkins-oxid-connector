@@ -1,8 +1,4 @@
 <?php
-use LizardsAndPumpkins\MagentoConnector\Uploader;
-use LizardsAndPumpkins\MagentoConnector\XmlBuilder\CatalogMerge;
-
-require __DIR__ . '/../../lib/autoload.php';
 
 /**
  * Created by PhpStorm.
@@ -25,11 +21,6 @@ class azlizardsimport extends oxUBase
     protected function _generateLizardsXML()
     {
         $filename = tempnam('lap', 'xml_');
-echo $filename;
-        $xmlBuilderAndUploader = new Export(
-            $merge = new CatalogMerge(),
-            $uploader = new Uploader($filename)
-        );
 
         /**
          * @var oxArticle $articleObject
@@ -72,13 +63,9 @@ echo $filename;
 
             $this->products[] = $product;
 
-            $xmlBuilderAndUploader->process($product);
         }
-
-        $uploader->writePartialXmlString($merge->finish());
-
+        file_put_contents($filename, var_export($this->products, true));
         return $filename;
-
         //var_dump($this->products);
     }
 

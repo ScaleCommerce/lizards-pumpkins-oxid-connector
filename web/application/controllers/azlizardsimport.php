@@ -35,8 +35,14 @@ class AzLizardsImport extends oxUBase
             $product['tax_class'] = $articleObject->getArticleVat();
             $product['sku'] = $sku;
 
-            $gallery = $articleObject->getPictureGallery();
-            dumpVar($gallery);
+            //$gallery = $articleObject->getPictureGallery();
+            //dumpVar($gallery);
+
+            $masterPic = 'product/1' . $articleObject->getPictureFieldValue(1);
+            $picturePath = $this->getConfig()->getMasterPicturePath($masterPic);
+
+            echo $picturePath."<br>";
+
             /*
             $product['images'] = array(
                 array(

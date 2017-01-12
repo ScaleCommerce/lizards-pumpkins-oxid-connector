@@ -27,8 +27,8 @@ class azlizardsimport extends oxUBase
         $filename = tmpfile();
 
         $xmlBuilderAndUploader = new Export(
-            new CatalogMerge(),
-            new Uploader($filename)
+            $merge = new CatalogMerge(),
+            $uploader = new Uploader($filename)
         );
 
         /**
@@ -75,9 +75,7 @@ class azlizardsimport extends oxUBase
             $xmlBuilderAndUploader->process($product);
         }
 
-        $this->getFactory()->getProductXmlUploader()->writePartialXmlString(
-            $this->getFactory()->getCatalogMerge()->finish()
-        );
+        $uploader->writePartialXmlString($merge->finish());
 
         return $filename;
 

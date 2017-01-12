@@ -1,4 +1,5 @@
 <?php
+require __DIR__ . '/lib/autoload.php';
 
 $aModule = array(
     'id'            => 'lizardandpumpkins',
